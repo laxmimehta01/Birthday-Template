@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Hearts Canvas -->
+  <canvas id="confetti"></canvas>
+    
+    <h1 id="birthdayMessage"></h1>
+
+<script>
+  const message = "🎉 Happy Birthday ✨🎉 Happy Birthday ✨🎉 Happy Birthday ✨🎉 Happy Birthday ✨ ";
+  let i = 0;
+
+  function typeMessage() {
+    if (i < message.length) {
+      document.getElementById("birthdayMessage").innerHTML += message.charAt(i);
+      i++;
+      setTimeout(typeMessage, 100); //  typing speed
+    }
+  }
+
+  // Ensure it runs after page fully loads
+  window.addEventListener("load", typeMessage);
+</script>
+
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <p id="countdown"></p>
+    <h1 class="glow">Happy Birthday❤️</h1>
+    <p class="subtitle">Click below to start your surprise ✨</p>
+    <button class="btn" onclick="playMusic()">Start</button>
+  </div>
+
+<br>
+<!-- Cake Section -->
+<div class="cake-section" style="text-align:center;">
+  <h2>🎂 Special Surprise 🎂</h2>
+  <button class="btn" onclick="showCake()">There’s a cake for you!<3 </button>
+</div>
+
+<!-- Embedded Cake (initially empty iframe) -->
+<div class="cake hidden" id="cake">
+  <iframe id="cakeFrame" width="250" height="520" 
+    style="border:none; border-radius:20px; box-shadow:0 4px 15px rgba(0,0,0,0.2);">
+  </iframe>
+</div>
+<br>
+  
+<!-- Love Letter -->
+<div class="letter-container">
+  <h2>💌 A Special Letter For You 💌</h2>
+
+  <!-- Envelope -->
+  <div class="envelope" onclick="openLetter()">
+    <div class="flap"></div>
+    <div class="paper"></div>
+  </div>
+
+  <!-- Floating hearts container -->
+  <div class="hearts" id="hearts"></div>
+
+  <!-- Hidden Letter -->
+  <div class="letter" id="letter">
+    <p>Lorem ipsum,</p>
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis sapiente, tempore omnis hic facilis ipsum magnam distinctio in nihil, nobis corporis! Nesciunt ipsam, a possimus consequuntur reiciendis iusto voluptatem tempora.
+    </p>
+    <p>
+      Forever yours,<br>
+      <strong>tempora </strong>
+    </p>
+  </div>
+</div>
+
+<!-- Memory Timeline -->
+<div class="timeline-section">
+  <h2>📸 Memory Timeline 📸</h2>
+  <div class="timeline">
+
+    <!-- Photos  -->
+    <div class="timeline-item left">
+      <img src="https://picsum.photos/200" alt="Memory 1">
+      <div class="caption">Caption 1 </div>
+    </div>
+
+    <div class="timeline-item right">
+      <img src="https://picsum.photos/200" alt="Memory 2">
+      <div class="caption">Caption 2 </div>
+    </div>
+
+    <div class="timeline-item left">
+      <img src="https://picsum.photos/200" alt="Memory 3">
+      <div class="caption">Caption 3 </div>
+    </div>
+
+    <div class="timeline-item right">
+      <img src="https://picsum.photos/200" alt="Memory 4">
+      <div class="caption">Caption 4 </div>
+    </div>
+    <!-- you can add more images here -->
+    
+  </div>
+</div>
+
+
+  <!-- Quiz -->
+<div class="quiz">
+  <h2>🥰 Fun Quiz! 💕</h2>
+  <div id="quizContainer">
+    <!-- Question text -->
+    <p id="quizQuestion"></p>
+
+    <!-- Answer buttons -->
+    <div id="quizOptions"></div>
+
+    <!-- Result text -->
+    <div class="result" id="quizResult"></div>
+
+    <!-- Next button -->
+    <button id="nextBtn" onclick="nextQuestion()" style="display:none;">Next ➡️</button>
+  </div>
+</div>
+
+
+  <!-- Background Music -->
+  <audio id="bgMusic" src="music.mp3"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

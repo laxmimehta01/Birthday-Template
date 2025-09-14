@@ -1,0 +1,328 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ffdde1, #f493a0);
+  color: #333;
+  overflow-x: hidden;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #1a1a1a;
+  color: white;
+}
+.glow {
+  font-size: 3.5em;
+  font-weight: bold;
+  background: linear-gradient(10deg, #fff, #e94475, #edadad);
+  /* background: linear-gradient(45deg, #f2f2f2, #8b2242, #dd3a3a); */
+  
+  background-clip: text;
+  -webkit-background-clip: text; /* for Chrome, Safari */
+  
+  color: transparent; /* make text actually show gradient */
+  -webkit-text-fill-color: transparent; /* required for Safari */
+  
+  text-shadow: 0 0 10px #ff4b6e, 0 0 20px #ff99ac;
+  animation: glowPulse 2s infinite alternate;
+}
+
+@keyframes glowPulse {
+  from { text-shadow: 0 0 10px #fff, 0 0 20px #ff4b6e; }
+  to { text-shadow: 0 0 20px #fff, 0 0 30px #ff99ac; }
+}
+.subtitle {
+  font-size: 1.2em;
+  color: #fff;
+  animation: bounce 1.5s infinite;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+ .btn {
+  background: linear-gradient(45deg, #ff4b6e, #ff99ac);
+  border: none;
+  padding: 12px 25px;
+  margin: 10px;
+  border-radius: 30px;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: transform 0.2s;
+}
+.btn:hover { transform: scale(1.1); }
+
+/* Cake Section */
+.cake.hidden {
+  display: none;
+}
+.cake {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Container */
+.letter-container {
+  text-align: center;
+  margin: 50px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Envelope base */
+.envelope {
+  width: 260px;
+  height: 180px;
+  margin: auto;
+  position: relative;
+  background: #ffb6c1;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.envelope:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+/* Flap */
+.envelope .flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0; height: 0;
+  border-left: 130px solid transparent;
+  border-right: 130px solid transparent;
+  border-bottom: 95px solid #ff8fa3;
+  transition: transform 0.6s ease;
+  transform-origin: top;
+  z-index: 3;
+}
+
+/* Paper */
+.envelope .paper {
+  position: absolute;
+  top: 90px;
+  left: 15px;
+  width: 230px;
+  height: 120px;
+  background: white;
+  border-radius: 6px;
+  z-index: 2;
+  transform: translateY(100%);
+  transition: transform 0.8s ease;
+}
+
+/* Letter text */
+.letter {
+  opacity: 0;
+  margin-top: 25px;
+  padding: 25px;
+  background: white;
+  border-radius: 16px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  font-family: 'Georgia', serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  transition: opacity 1s ease;
+}
+
+/* Hearts container */
+.hearts {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Floating heart */
+.heart {
+  position: absolute;
+  bottom: 180px;
+  font-size: 22px;
+  animation: floatUp 3s ease forwards;
+  opacity: 0.8;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-250px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Timeline Section */
+.timeline-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.timeline-section h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #d6336c;
+}
+
+/* Timeline Layout */
+.timeline {
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* Timeline Items */
+.timeline-item {
+  padding: 20px;
+  position: relative;
+  width: 80%;
+  margin: 40px auto;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+/* Timeline Images - smaller size */
+.timeline-item img {
+  width: 40%; /* smaller than before */
+  max-width: 250px; /* never exceed 250px */
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.timeline-item img:hover {
+  transform: scale(1.05);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .timeline-item {
+    width: 100%;
+    text-align: center !important; /* force center on small screens */
+  }
+
+  .timeline-item img {
+    width: 80%;      /* larger but still neat */
+    max-width: 200px;
+  }
+}
+
+/* Alternate positioning */
+.timeline-item.left {
+  text-align: left;
+}
+
+.timeline-item.right {
+  text-align: right;
+}
+
+/* Images */
+.timeline-item img {
+  width: 70%;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.timeline-item img:hover {
+  transform: scale(1.05);
+}
+
+/* Caption */
+.caption {
+  margin-top: 12px;
+  display: inline-block;
+  font-size: 1rem;
+  background: #fff0f5;
+  padding: 12px 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Reveal Animation */
+.timeline-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Quiz */
+.quiz {
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.quiz h2 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  color: #ff3366;
+}
+
+.quiz p {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+#quizOptions {
+  margin: 15px 0;
+}
+
+.quiz button {
+  background: linear-gradient(45deg, #ff4b6e, #ff99ac);
+  border: none;
+  padding: 12px 25px;
+  margin: 10px;
+  border-radius: 30px;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.2s, background 0.3s;
+}
+
+.quiz button:hover {
+  transform: scale(1.08);
+  background: linear-gradient(45deg, #ff3366, #ff99ac);
+}
+
+.result {
+  font-weight: bold;
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: #d6336c;
+  min-height: 24px;
+}
+
+/* Hearts canvas */
+#confetti {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+}
